@@ -18,6 +18,8 @@ module Banquidle
 
     config.action_dispatch.default_headers.delete("X-Frame-Options")
 
+    config.hosts << "localhost:3001"
+
     # Configuration for the application, engines, and railties goes here.
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
