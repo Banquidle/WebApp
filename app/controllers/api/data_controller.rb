@@ -14,6 +14,6 @@ class Api::DataController < ApplicationController
     end
 
     u_sess = DailyGameStats.new user_id
-    u_sess.nb_tries_yesterday
+    render json: { nb: u_sess.nb_tries_yesterday }, status: :ok
   end
 end
