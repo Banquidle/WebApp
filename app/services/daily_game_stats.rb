@@ -1,14 +1,14 @@
 class DailyGameStats
-  TTL = 25.hours.to_i
+  TTL = 48.hours.to_i
 
-  def initialize(user_id)
+  def initialize(user_id, date = Time.zone.today)
     @user_id = user_id
-    @date_string = Time.zone.now.to_date.to_s
+    @date_string = date.to_s
     @key = "daily_game:#{@date_string}:#{@user_id}"
   end
 
   def stats
-    data = $redis.hgetall(@key)
+    data = $redis.hgetall @key
 
     if data.empty?
       { user_id: @user_id, date: @date_string, guesses: [] }
@@ -21,8 +21,13 @@ class DailyGameStats
     end
   end
 
-  def nb_tries_yesterday
-    4
+  def nb_tries
+    data = $redis.hgetall @key
+    if data.empty?
+      0
+    else
+      data["guesses"].length
+    end
   end
 
   def add_guess(guess_string)

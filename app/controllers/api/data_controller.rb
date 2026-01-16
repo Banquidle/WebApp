@@ -5,7 +5,7 @@ require "uri"
 class Api::DataController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  def nb_tries_player
+  def nb_tries_yesterday
     user_id = params[:user_id]
 
     if user_id.blank?
@@ -13,7 +13,7 @@ class Api::DataController < ApplicationController
       return
     end
 
-    u_sess = DailyGameStats.new user_id
-    render json: { nb: u_sess.nb_tries_yesterday }, status: :ok
+    yesterdays_session = DailyGameStats.new(user_id, 1.day.ago.to_date)
+    render json: { nb: yesterdays_session.nb_tries }, status: :ok
   end
 end

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     post "token", to: "discord_token#create"
-    get "nb_tries", to: "data#nb_tries_player"
+    get "nb_tries_yesterday", to: "data#nb_tries_yesterday"
   end
 
   resources :game, only: [] do
