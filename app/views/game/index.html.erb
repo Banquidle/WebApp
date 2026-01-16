@@ -4,7 +4,7 @@
                options_for_select(@people.map { |p| [ "#{p.first_name_content} #{p.last_name_content}", p.quickname ] }),
                { include_blank: "----" } %>
 
-  <%= f.hidden_field :username, value: @username %>
+  <%= f.hidden_field :user_id, value: @user_id %>
   <%= f.submit "Envoyer" %>
 <% end %>
 

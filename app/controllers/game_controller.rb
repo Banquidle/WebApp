@@ -6,12 +6,12 @@ class GameController < ApplicationController
 
     @todays_person = TodaysPersonService.get_daily
 
-    @username = params[:username]
-    unless @username.present?
+    @user_id = params[:user_id]
+    unless @user_id.present?
       redirect_to root_path, alert: "Authentication is required."
     end
 
-    u_sess = DailyGameStats.new @username
+    u_sess = DailyGameStats.new @user_id
 
     prev_guesses = u_sess.stats[:guesses]
 
@@ -30,9 +30,9 @@ class GameController < ApplicationController
   def submit_guess
     @todays_person = TodaysPersonService.get_daily
 
-    username = params[:username]
+    user_id = params[:user_id]
 
-    u_sess = DailyGameStats.new username
+    u_sess = DailyGameStats.new user_id
 
     prev_guesses = u_sess.stats[:guesses]
 

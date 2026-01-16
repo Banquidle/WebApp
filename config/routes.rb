@@ -14,14 +14,10 @@ Rails.application.routes.draw do
 
   root "loading#index"
 
-  namespace :discord do
-    post "token", to: "token#create"
-  end
+  post "api/token", to: "api/discord_token#create"
 
-  resources :game, only: [] do
-    collection do
-      get :load_content
-      post :submit_guess
-    end
-  end
+  get "api/nb_tries", to: "api/data#nb_tries_player"
+
+  get "game/load_content", to: "game#load_content"
+  post "game/submit_guess", to: "game#submit_guess"
 end
