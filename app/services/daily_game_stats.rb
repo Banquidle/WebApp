@@ -23,10 +23,10 @@ class DailyGameStats
 
   def nb_tries
     data = $redis.hgetall @key
-    if data.empty?
+    if data.empty? or not data["guesses"]
       0
     else
-      data["guesses"].length
+      JSON.parse(data["guesses"]).length
     end
   end
 
