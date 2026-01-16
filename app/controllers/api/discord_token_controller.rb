@@ -2,7 +2,7 @@ require "net/http"
 require "json"
 require "uri"
 
-class API::DiscordTokenController < ApplicationController
+class Api::DiscordTokenController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create

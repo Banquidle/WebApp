@@ -2,7 +2,7 @@ require "net/http"
 require "json"
 require "uri"
 
-class API::DataController < ApplicationController
+class Api::DataController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def nb_tries_player
