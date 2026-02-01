@@ -11,8 +11,8 @@
 default = Rails.root.join('db', 'seeds', 'base.rb')
 private = Rails.root.join('db', 'seeds', 'private.rb')
 
-#if File.exist? private
-#  load private
-#else
+if File.exist? private
+  load private
+else
   load default
-#end
+end
