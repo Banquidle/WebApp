@@ -1,11 +1,9 @@
-<% if (@prev_people and @prev_people.include? todays) or (@person and @person == todays) %>
-  <% if todays.is_birthday? %>
-    <h3>BON ANNIVERSAIRE <%= todays.first_name.content.upcase %> !!!</h3>
+<% if todays.is_birthday? %>
+  <h3>BON ANNIVERSAIRE <%= todays.first_name.content.upcase %> !!!</h3>
+<% else %>
+  <% if nb_tries == 1 %>
+    <h3>Lucky !</h3>
   <% else %>
-    <% if nb_tries == 1 %>
-      <h3>Lucky !</h3>
-    <% else %>
-      <h3>Bravo ! Tu as pris <%= nb_tries %> essais.</h3>
-    <% end %>
+    <h3>Bravo ! Tu as pris <%= nb_tries %> essais.</h3>
   <% end %>
 <% end %>
