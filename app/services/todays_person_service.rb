@@ -1,5 +1,9 @@
 class TodaysPersonService
   def self.get_daily
+    if (person = born_today)
+      return person
+    end
+
     todays = get_quickname_of Date.today
     yesterdays = get_quickname_of Date.yesterday
 
@@ -22,5 +26,9 @@ class TodaysPersonService
     hex = Digest::MD5.hexdigest(date.to_s)
     idx = hex.to_i(16) % quicknames.size
     quicknames[idx]
+  end
+
+  def self.born_today
+    Person.where(birth_day: Date.today.day, birth_month: Date.today.month).sample
   end
 end

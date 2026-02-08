@@ -6,4 +6,8 @@ class Person < ApplicationRecord
   belongs_to :location
 
   validates :quickname, presence: true, uniqueness: true
+
+  def is_birthday?
+    birth_day == Date.today.day and birth_month == Date.today.month
+  end
 end

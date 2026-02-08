@@ -26,9 +26,7 @@
 </table>
 
 <div id="congrats-div">
-  <% if @prev_people.include?(@todays_person) %>
-    <%= render partial: "game/congratulations", locals: { nb_tries: @nb_tries } %>
-  <% end %>
+  <%= render partial: "game/congrats", locals: { todays: @todays_person, nb_tries: @nb_tries } %>
 </div>
 
 <script>

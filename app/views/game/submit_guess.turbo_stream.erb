@@ -1,4 +1,5 @@
 <%= turbo_stream.prepend "guesses", partial: "people/person", locals: { person: @person, todays: @todays_person } %>
-<% if @person == @todays_person %>
-  <%= turbo_stream.update "congrats-div", partial: "game/congratulations", locals: { nb_tries: @nb_tries } %>
+
+<%= turbo_stream.update "congrats-div" do %>
+  <%= render partial: "game/congrats", locals: { todays: @todays_person, nb_tries: @nb_tries } %>
 <% end %>
