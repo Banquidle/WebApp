@@ -1,0 +1,2 @@
+class AgeGroup < RecordWithGenderedValue
+end

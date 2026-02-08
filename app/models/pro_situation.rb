@@ -1,7 +1,7 @@
-class ProSituation < ApplicationRecord
+class ProSituation < RecordWithGenderedValue
   has_many :people
 
-  validates :content, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
   def get_related
     related_ids =

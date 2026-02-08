@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-etu = ProSituation.find_or_create_by!(content: "Étudiant")
+etu = ProSituation.find_or_create_by!(name: "Étudiant")
 
 m = Sex.find_or_create_by!(value: "M")
 f = Sex.find_or_create_by!(value: "F")

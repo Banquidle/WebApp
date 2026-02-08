@@ -4,6 +4,7 @@ class Person < ApplicationRecord
   belongs_to :sex
   belongs_to :pro_situation
   belongs_to :location
+  belongs_to :age_group
 
   validates :quickname, presence: true, uniqueness: true
 

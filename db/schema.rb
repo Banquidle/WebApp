@@ -40,6 +40,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_19_123512) do
     t.integer "pro_situation_id", null: false
     t.string "quickname", null: false
     t.integer "sex_id", null: false
+    t.integer "age_group_id", null: false
     t.integer "birth_day", null: true
     t.integer "birth_month", null: true
     t.datetime "updated_at", null: false
@@ -60,11 +61,11 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_19_123512) do
   end
 
   create_table "pro_situations", force: :cascade do |t|
-    t.string "content"
+    t.string "name"
     t.datetime "created_at", null: false
     t.string "translation_f"
     t.datetime "updated_at", null: false
-    t.index [ "content" ], name: "index_pro_situations_on_content", unique: true
+    t.index [ "name" ], name: "index_pro_situations_on_name", unique: true
   end
 
   create_table "sexes", force: :cascade do |t|
@@ -73,9 +74,17 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_19_123512) do
     t.string "value"
   end
 
+  create_table "age_groups", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "translation_f"
+  end
+
   add_foreign_key "people", "first_names"
   add_foreign_key "people", "last_names"
   add_foreign_key "people", "locations"
   add_foreign_key "people", "pro_situations"
   add_foreign_key "people", "sexes"
+  add_foreign_key "people", "age_groups"
 end

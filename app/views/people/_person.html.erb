@@ -24,6 +24,9 @@
   <td class="<%= person.sex.id == todays.sex.id ? 'correct' : 'incorrect' %>">
     <%= person.sex.value %>
   </td>
+  <td class="<%= person.location.id == todays.location.id ? 'correct' : 'incorrect' %>">
+    <%= person.location.content %>
+  </td>
   <td class="<%=
     if person.pro_situation.id == todays.pro_situation.id
       'correct'
@@ -33,9 +36,9 @@
       'incorrect'
     end
   %>">
-    <%= (person.sex.value == 'F' and not person.pro_situation.translation_f.nil?) ? person.pro_situation.translation_f : person.pro_situation.content %>
+    <%= person.pro_situation.gendered_from person.sex %>
   </td>
-  <td class="<%= person.location.id == todays.location.id ? 'correct' : 'incorrect' %>">
-    <%= person.location.content %>
+  <td class="<%= person.age_group.id == todays.age_group.id ? 'correct' : 'incorrect' %>">
+    <%= person.age_group.gendered_from person.sex %>
   </td>
 </tr>
