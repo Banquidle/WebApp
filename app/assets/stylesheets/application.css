@@ -8,9 +8,30 @@
  *
  * Consider organizing styles into separate files for maintainability.
 
- *= require_tree ./base
- *= require_tree ./layout
- *= require_tree ./components
- *= require_tree ./pages
  *= require_self
  */
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.correct {
+    background-color: limegreen;
+}
+
+.incorrect {
+#    background-color: red;
+}
+
+.partial {
+    background-color: orange;
+}
