@@ -11,17 +11,11 @@
  *= require_self
  */
 
-html {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 body {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .correct {
