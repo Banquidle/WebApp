@@ -1,0 +1,25 @@
+* {
+    font-family: 'Alegreya', Georgia, serif !important
+}
+
+h1 {
+    font-size: 4em;
+    color : rgb(69, 15, 15);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+td {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+th {
+    color: white;
+    font-size: 1.7em;
+}

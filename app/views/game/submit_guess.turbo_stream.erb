@@ -5,5 +5,5 @@
     <%= render partial: "game/congrats", locals: { todays: @todays_person, nb_tries: @nb_tries } %>
   <% end %>
 
-  <%= turbo_stream.remove "guess-form" %>
+  <%= turbo_stream.remove "guessForm" %>
 <% end %>

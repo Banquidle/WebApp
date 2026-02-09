@@ -1,0 +1,47 @@
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 40%;
+}
+
+thead {
+    background-image: url("tiles.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+tr {
+    height: 5vh;
+    width: 12vw;
+}
+
+tbody > tr:hover {
+    background-color: #D6EEEE;
+}
+
+th, td {
+    padding: 0 2.5vw;
+}
+
+th {
+    background-color: rgba(69, 15, 15, 0.58);
+    padding: 6px;
+}
+
+.correct {
+    background-image: url('brick-red.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.incorrect {
+    background-image: url('brick-light.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.partial {
+    background-image: url('brick-medium.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
