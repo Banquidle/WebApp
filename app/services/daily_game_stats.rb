@@ -1,9 +1,9 @@
 class DailyGameStats
   TTL = 48.hours.to_i
 
-  def initialize(user_id, date = Time.zone.today)
+  def initialize(user_id)
     @user_id = user_id
-    @date_string = date.to_s
+    @date_string = Time.zone.today.to_s
     @key = "daily_game:#{@date_string}:#{@user_id}"
   end
 
@@ -21,15 +21,6 @@ class DailyGameStats
     end
   end
 
-  def nb_tries
-    data = $redis.hgetall @key
-    if data.empty? or not data["guesses"]
-      0
-    else
-      JSON.parse(data["guesses"]).length
-    end
-  end
-
   def add_guess(guess_string)
     current_stats = self.stats
     current_guesses = current_stats[:guesses]
@@ -39,6 +30,36 @@ class DailyGameStats
     $redis.hset(@key, "guesses", current_guesses.to_json)
 
     set_expiry_if_needed
+  end
+
+  def self.nb_tries_for_yesterday
+    date_string = (Time.zone.today - 1.day).to_s
+    pattern = "daily_game:#{date_string}:*"
+
+    result = {}
+
+    cursor = "0"
+    begin
+      cursor, keys = $redis.scan(cursor, match: pattern, count: 100)
+
+      keys.each do |key|
+        data = $redis.hgetall(key)
+
+        next if data.empty?
+
+        guesses =
+          if data["guesses"]
+            JSON.parse(data["guesses"])
+          else
+            []
+          end
+
+        user_id = key.split(":").last
+        result[user_id] = guesses.length.to_s
+      end
+    end while cursor != "0"
+
+    result.to_json
   end
 
   private
