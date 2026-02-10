@@ -2,7 +2,7 @@
   <%= form_with url: submit_guess_game_index_path, data: { turbo_stream: true }, method: :post, id: "guessForm" do |f| %>
     <%= f.label :quickname, "Choisis une personne :" %>
     <%= f.select :quickname,
-                 options_for_select(@people.map { |p| [ "#{p.first_name_content} #{p.last_name_content}", p.quickname ] }),
+                 options_for_select(@people.map { |p| [ "#{p.firstName} #{p.lastName}", p.quickname ] }),
                  { include_blank: "----" }, id: "personInput" %>
 
     <%= f.hidden_field :user_id, value: @user_id %>
