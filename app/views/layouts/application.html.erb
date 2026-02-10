@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <title><%= content_for(:title) || "Banquidle" %></title>
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Banquidle">
@@ -29,12 +30,10 @@
 </head>
 
 <body>
-<div class="container">
-  <h1>Banquidle v2</h1>
+<h1>Banquidle v2</h1>
 
-  <%= render "layouts/flash" %>
+<%= render "layouts/flash" %>
 
-  <%= yield %>
-</div>
+<%= yield %>
 </body>
 </html>

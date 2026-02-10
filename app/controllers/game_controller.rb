@@ -3,7 +3,7 @@ class GameController < ApplicationController
   before_action :get_todays_person, :require_auth
 
   def load_content
-    @people = Person.joins(:first_name, :last_name).select("quickname, first_names.content AS first_name_content, last_names.content AS last_name_content").order!(:first_name_content)
+    @people = Person.joins(:first_name, :last_name).select("quickname, first_names.content AS firstName, last_names.content AS lastName").order!(:firstName)
 
     u_sess = DailyGameStats.new @user_id
 

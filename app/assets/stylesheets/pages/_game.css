@@ -1,5 +1,5 @@
 /* Main container for the game */
-.container {
+body {
   max-width: 600px; /* Slightly wider for the new table */
   margin: 0 auto;
   padding: var(--spacing-md);
@@ -56,7 +56,7 @@ h1 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .container {
+  body {
     padding: var(--spacing-sm);
     max-width: 100%;
   }

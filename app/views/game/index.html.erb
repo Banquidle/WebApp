@@ -1,14 +1,18 @@
 <% unless @won %>
-  <%= form_with url: submit_guess_game_index_path, data: { turbo_stream: true }, method: :post, id: "guess-form" do |f| %>
+  <%= form_with url: submit_guess_game_index_path, data: { turbo_stream: true }, method: :post, id: "guessForm" do |f| %>
     <%= f.label :quickname, "Choisis une personne :" %>
     <%= f.select :quickname,
                  options_for_select(@people.map { |p| [ "#{p.first_name_content} #{p.last_name_content}", p.quickname ] }),
-                 { include_blank: "----" } %>
+                 { include_blank: "----" }, id: "personInput" %>
 
     <%= f.hidden_field :user_id, value: @user_id %>
     <%= f.submit "Envoyer" %>
   <% end %>
 <% end %>
+
+<div id="congrats-div">
+  <%= render partial: "game/congrats", locals: { todays: @todays_person, nb_tries: @nb_tries } if @won %>
+</div>
 
 <table>
   <thead>
@@ -27,13 +31,3 @@
              locals: { todays: @todays_person } if defined?(@prev_people) %>
   </tbody>
 </table>
-
-<div id="congrats-div">
-  <%= render partial: "game/congrats", locals: { todays: @todays_person, nb_tries: @nb_tries } if @won %>
-</div>
-
-<script>
-    document.addEventListener("turbo:submit-end", function (event) {
-        if (event.target.id === "guess-form") event.target.reset()
-    })
-</script>
