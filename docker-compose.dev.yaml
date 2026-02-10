@@ -1,21 +1,16 @@
-version: "3.9"
-
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    image: banquidle-webapp
-    container_name: banquidle-webapp
+  webapp:
+    build: WebApp
+    image: banquidle-webapp-development
     ports:
       - "3000:3000"
     volumes:
-      - .:/rails
+      - ./WebApp:/rails
     environment:
       RAILS_ENV: development
+
     networks:
       - backend
-    command: bin/rails server -b 0.0.0.0
     depends_on:
       - redis
   

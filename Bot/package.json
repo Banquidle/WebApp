@@ -1,0 +1,17 @@
+{
+  "name": "banquidle-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Discord bot to launch the Banquidle custom activity.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "Izoret",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.24.2",
+    "dotenv": "^17.2.3",
+    "node-cron": "^4.2.1"
+  }
+}

@@ -13,12 +13,9 @@ COPY package.json package-lock.json ./
 RUN bundle install
 RUN npm install
 
-COPY . .
-
 ENV RAILS_ENV=development
 EXPOSE 3000
 
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 CMD ["bin/rails", "server", "-b", "0.0.0.0"]
-

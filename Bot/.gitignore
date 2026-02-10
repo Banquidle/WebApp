@@ -1,0 +1,6 @@
+/.env
+
+/res/*
+!/res/patches/
+/res/patches/*
+!/res/patches/test.md

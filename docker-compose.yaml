@@ -1,17 +1,12 @@
-version: "3.9"
-
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: banquidle-webapp/latest
+  webapp:
+    build: WebApp
+    image: banquidle-webapp
     ports:
       - "3001:3000"
     environment:
       RAILS_ENV: production
       RAILS_MASTER_KEY: f335abf9dea822de4365bc32117b2fb7
-      DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
     networks:
       - backend
     depends_on:
@@ -23,6 +18,10 @@ services:
       - redis_data:/data
     networks:
       - backend
+
+  bot:
+    build: Bot
+    restart: always
 
 volumes:
   redis_data:
