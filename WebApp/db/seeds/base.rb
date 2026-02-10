@@ -13,6 +13,9 @@ etu = ProSituation.find_or_create_by!(name: "Étudiant")
 m = Sex.find_or_create_by!(value: "M")
 f = Sex.find_or_create_by!(value: "F")
 
+enfant = AgeGroup.find_or_create_by!(name: "Enfant")
+old = AgeGroup.find_or_create_by!(name: "Vintage")
+
 paris = Location.find_or_create_by!(content: "Paris")
 
 =begin
@@ -32,7 +35,8 @@ Person.create(
   last_name: LastName.find_or_create_by!(content: "François"),
   sex: m,
   pro_situation: etu,
-  location: paris
+  location: paris,
+  age_group: enfant
 )
 =begin
 Person.create(
@@ -50,5 +54,6 @@ Person.create(
   last_name: LastName.find_or_create_by!(content: "Gen"),
   sex: m,
   pro_situation: etu,
-  location: paris
+  location: paris,
+  age_group: old
 )
