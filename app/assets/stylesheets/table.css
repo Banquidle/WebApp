@@ -1,7 +1,7 @@
 table {
     border-collapse: separate;
     border-spacing: 0;
-    min-width: 40%;
+    #min-width: 10vw;
 }
 
 thead {
