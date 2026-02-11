@@ -1,13 +1,10 @@
 :root {
-    /* Fonts */
     --font-family: 'Share Tech Mono', monospace;
 
-    /* Colors - Synthwave/Neon */
-    --primary-color: #00ffff; /* Cyan */
+    --primary-color: #00ffff;
     --primary-dark: #00c0c0;
-    --secondary-color: #ff00ff; /* Magenta */
+    --secondary-color: #ff00ff;
 
-    /* Status colors */
     --correct-answer: #00ff64;
     --correct-bg: rgba(0, 255, 100, 0.15);
     --partial-answer: #dbf927;
@@ -15,28 +12,22 @@
     --wrong-answer: #ff4d4d;
     --wrong-bg: rgba(113, 0, 0, 0.1);
 
-    /* Backgrounds */
-    --bg-color: #0d0c1d; /* Deep space blue */
-    --card-bg: rgba(26, 26, 46, 0.7); /* Transparent dark card */
+    --bg-color: #0d0c1d;
+    --card-bg: rgba(26, 26, 46, 0.7);
 
-    /* Text colors */
-    --text-primary: #f0f0f0; /* Light grey/white */
-    --text-secondary: #8a8a8a; /* Dim grey */
-    --text-inverse: #0d0c1d; /* Dark bg for light buttons */
+    --text-primary: #f0f0f0;
+    --text-secondary: #8a8a8a;
+    --text-inverse: #0d0c1d;
 
-    /* Borders */
-    --border-color: #00ffff; /* Cyan */
+    --border-color: #00ffff;
 
-    /* Shadows (now glows) */
     --shadow-sm: 0 0 5px var(--primary-color);
     --shadow-md: 0 0 10px var(--primary-color);
     --shadow-lg: 0 0 20px var(--primary-color);
 
-    /* Border radius */
-    --radius: 0px; /* Sharp, futuristic angles */
+    --radius: 0px;
     --radius-lg: 0px;
 
-    /* Spacing */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;

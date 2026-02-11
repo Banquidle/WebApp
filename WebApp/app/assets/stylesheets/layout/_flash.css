@@ -1,49 +1,39 @@
 #flash {
-  margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
 }
 
 .flash {
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--radius);
-  margin-bottom: var(--spacing-sm);
-  font-weight: 700;
-  font-size: 0.9rem;
-  border: 1px solid;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  /* Removed animation for a cleaner look */
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 1px solid;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.flash.notice,
 .flash.success {
-  background-color: var(--correct-bg);
-  color: var(--correct-answer);
-  border-color: var(--correct-answer);
-  box-shadow: 0 0 10px var(--correct-answer);
-  text-shadow: 0 0 5px var(--correct-answer);
+    background-color: var(--correct-bg);
+    color: var(--correct-answer);
+    border-color: var(--correct-answer);
+    box-shadow: 0 0 10px var(--correct-answer);
+    text-shadow: 0 0 5px var(--correct-answer);
 }
 
 .flash.alert {
-  background-color: var(--partial-bg);
-  color: var(--partial-answer);
-  border-color: var(--partial-answer);
-  box-shadow: 0 0 10px var(--partial-answer);
-  text-shadow: 0 0 5px var(--partial-answer);
+    background-color: rgba(255, 200, 0, 0.1);
+    color: #ffc800;
+    border-color: #ffc800;
+    box-shadow: 0 0 10px #ffc800;
+    text-shadow: 0 0 5px #ffc800;
 }
+
 .flash.error {
-  background-color: var(--wrong-bg);
-  color: var(--wrong-answer);
-  border-color: var(--wrong-answer);
-  box-shadow: 0 0 10px var(--wrong-answer);
-  text-shadow: 0 0 5px var(--wrong-answer);
+    background-color: var(--wrong-bg);
+    color: var(--wrong-answer);
+    border-color: var(--wrong-answer);
+    box-shadow: 0 0 10px var(--wrong-answer);
+    text-shadow: 0 0 5px var(--wrong-answer);
 }
-
-.flash.warning {
-  background-color: rgba(255, 200, 0, 0.1);
-  color: #ffc800; /* Neon Yellow */
-  border-color: #ffc800;
-  box-shadow: 0 0 10px #ffc800;
-  text-shadow: 0 0 5px #ffc800;
-}
-

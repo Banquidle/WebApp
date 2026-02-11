@@ -1,81 +1,67 @@
 form {
-  background: var(--card-bg);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  margin-bottom: var(--spacing-xl);
-  box-shadow: var(--shadow-lg), 0 0 30px var(--secondary-color) inset;
-  backdrop-filter: blur(5px); /* Glassmorphism effect */
+    background: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-lg), 0 0 30px var(--secondary-color) inset;
+    backdrop-filter: blur(5px);
 }
 
 label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: var(--spacing-sm);
-  color: var(--primary-color);
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-shadow: 0 0 3px var(--primary-color);
+    display: block;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 3px var(--primary-color);
 }
-
-/* --- UPDATED SECTION --- */
 
 select {
-  /* Reset browser default styles */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
 
-  /* Your original input styles */
-  width: 100%;
-  padding: var(--spacing-md);
-  font-size: 1.1rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  margin-bottom: var(--spacing-md);
-  transition: all 0.2s ease;
-  font-family: inherit;
-  color: var(--text-primary); /* Default text color when an option is selected */
-  background-color: var(--bg-color); /* Use background-color */
-  letter-spacing: 0.05em;
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    margin-bottom: var(--spacing-md);
+    transition: all 0.2s ease;
+    font-family: inherit;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    letter-spacing: 0.05em;
 
-  /* Add custom dropdown arrow */
-  /* This is a simple SVG arrow. You can change the fill color (currently #6b7280) */
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right var(--spacing-md) center;
-  background-repeat: no-repeat;
-  background-size: 1.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right var(--spacing-md) center;
+    background-repeat: no-repeat;
+    background-size: 1.5em;
 
-  /* Add padding on the right so text doesn't overlap the arrow */
-  padding-right: calc(var(--spacing-md) * 2 + 1.5em);
+    padding-right: calc(var(--spacing-md) * 2 + 1.5em);
 }
 
-/* This is the new "placeholder" style */
-/* It styles the select box when the "blank" option (value="") is selected */
 select:invalid {
-  color: var(--text-secondary);
-  font-style: italic;
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
-/* Styles for the options *inside* the dropdown popup */
 select option {
-  color: var(--text-primary);
-  font-style: normal;
-  background: var(--bg-color); /* Ensures options have matching background */
+    color: var(--text-primary);
+    font-style: normal;
+    background: var(--bg-color);
 }
 
 select:focus {
-  outline: none;
-  border-color: var(--secondary-color); /* Magenta focus */
-  box-shadow: 0 0 10px var(--secondary-color);
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px var(--secondary-color);
 }
 
-/* --- END UPDATED SECTION --- */
-
-
 @media (max-width: 768px) {
-  form {
-    padding: var(--spacing-md);
-  }
+    form {
+        padding: var(--spacing-md);
+    }
 }
