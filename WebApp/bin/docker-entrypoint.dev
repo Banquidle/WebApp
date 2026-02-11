@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+bundle check || bundle install
+
+./bin/rails db:drop
+./bin/rails db:schema:load
+./bin/rails db:seed
+
+exec "${@}"
