@@ -23,10 +23,10 @@ export async function handleMessageCreate(message, client) {
         }
     }
 
-    if (content.startsWith('!test')) {
+    /*if (content.startsWith('!test')) {
         console.log("> Read !test")
         const yesterdays = await getStringForYesterdays()
         console.log("yesterdays : " + yesterdays)
         await sendBanquidleInvite(client, null, yesterdays)
-    }
+    }*/
 }
