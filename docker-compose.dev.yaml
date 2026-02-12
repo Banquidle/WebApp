@@ -14,7 +14,7 @@ services:
       - redis
     working_dir: /app
     entrypoint: /app/bin/docker-entrypoint.dev
-    command: bundle exec rails server -b '0.0.0.0'
+    command: bundle exec rails server -b 0.0.0.0
     tty: true
     stdin_open: true
   
