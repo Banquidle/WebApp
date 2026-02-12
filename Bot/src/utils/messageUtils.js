@@ -5,13 +5,13 @@ export async function sendBanquidleInvite(client, targetMessage = null, extraCon
     try {
         const startButton = new ButtonBuilder()
             .setCustomId('start_banquidle')
-            .setLabel('Start Banquidle')
+            .setLabel('Start')
             .setStyle(ButtonStyle.Success)
 
         const row = new ActionRowBuilder().addComponents(startButton)
 
         const payload = {
-            content: `${extraContent}Rejoins le **Banquidle** du jour !`,
+            content: `${extraContent}\n\n*Rejoins le Banquidle du jour !*`,
             components: [row]
         }
 

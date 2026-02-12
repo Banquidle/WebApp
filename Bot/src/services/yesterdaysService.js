@@ -2,19 +2,34 @@ export async function getStringForYesterdays() {
     let mentionString = ""
 
     try {
-        const response = await fetch(`https://banquidle-webapp.antlia.dopolytech.fr/api/nb_tries_yesterday`)
+        const url = 'https://banquidle-webapp.antlia.dopolytech.fr/api/nb_tries_yesterday'
+        const response = await fetch(url)
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
-        const data = await response.json()
-        const entries = Object.entries(data)
 
-        if (entries.length > 0) {
-            const lines = entries.map(([id, tries]) => {
-                const count = parseInt(tries)
-                const label = count === 1 ? '1st try' : `${count} essais`
-                return `<@${id}>: ${label}`
+        const data = await response.json()
+
+        const sortedEntries = Object.entries(data)
+            .map(([id, tries]) => ({ id, tries: parseInt(tries) }))
+            .sort((a, b) => a.tries - b.tries)
+
+        if (sortedEntries.length > 0) {
+            const podiumEmojis = ['🥇', '🥈', '🥉']
+
+            const podium = sortedEntries.slice(0, 3).map((player, index) => {
+                const label = player.tries === 1 ? '1st try !' : `${player.tries} essais`
+                return `${podiumEmojis[index]} <@${player.id}> : ${label}`
             })
 
-            mentionString = `Performance d'hier :\n${lines.join('\n')}`
+            const others = sortedEntries.slice(3).map(player => {
+                return `• <@${player.id}> : ${player.tries} essais`
+            })
+
+            mentionString = `### Podium \\\\\n`
+            mentionString += podium.join('\n')
+
+            if (others.length > 0) {
+                mentionString += `\n\nAutrui \\\\\n${others.join('\n')}`
+            }
         }
     } catch (error) {
         console.error(`Failed to fetch daily tries: `, error)
