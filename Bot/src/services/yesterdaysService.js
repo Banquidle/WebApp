@@ -2,7 +2,7 @@ export async function getStringForYesterdays() {
     let mentionString = ""
 
     try {
-        const url = 'https://banquidle-webapp.antlia.dopolytech.fr/api/nb_tries_yesterday'
+        const url = 'http://webapp:3000/api/nb_tries_yesterday'
         const response = await fetch(url)
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
 
